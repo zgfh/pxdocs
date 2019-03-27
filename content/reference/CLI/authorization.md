@@ -1,7 +1,7 @@
 ---
 title: Authorization with pxctl
 linkTitle: Authorization
-keywords: portworx, container, Kubernetes, storage, auth, authz, authorization, authentication, login, token, context, generate
+keywords: portworx, container, Kubernetes, storage, auth, authz, authorization, authentication, login, token, oidc,context, generate, self-signed, jwt, shared-secret, c
 description: Learn to enable auth in your px cluster
 weight: 3
 ---
@@ -12,7 +12,7 @@ This document outlines how to interact with an auth-enabled PX cluster.
 
 ## Context
 
-pxctl allows you to store contexts and associated clusters, privileges, and tokens locally in your `~/.pxctl/contextconfig.yaml`
+pxctl allows you to store contexts and associated clusters, privileges, and tokens local to your users
 
 This enables you to easily switch between these configurations with a few commands:
 
@@ -88,10 +88,13 @@ __Unsetting current context:__
 ## Generating tokens
 PX supports two methods of authorization: OIDC and self-signed. 
 
-* For generating a token through your OIDC provider, your provider's documentation on generating bearer tokens.
-* For self-signed, pxctl has a command for generating token.
+* For generating a token through your OIDC provider, see your provider's documentation on generating bearer tokens:
+  * [Keycloak](https://www.keycloak.org/docs/1.9/server_development_guide/topics/admin-rest-api.html)
+  * [Auth0](https://auth0.com/docs/api/authentication#get-token)
+  * [Okta](https://developer.okta.com/docs/api/getting_started/getting_a_token/#token-expiration)
+* For self-signed, pxctl has a command for generating tokens
 
-__Generating self-signed tokens:__ pxctl allows you to generate self-signed tokens in a few different ways: ECDSA, RSA, and Shared-Secret.
+__Generating self-signed tokens:__ pxctl allows you to generate self-signed tokens in a few different ways: ECDSA, RSA, and Shared-Secret. In addition to these parameters, you must pass an issuer and authconfig.yaml. See below for an example with configuration `authconfig.yaml`.
 
 ```text
 pxctl auth token generate --auth-config=<authconfig.yaml> --issuer <issuer> \
@@ -100,7 +103,7 @@ pxctl auth token generate --auth-config=<authconfig.yaml> --issuer <issuer> \
     --shared-secret <secret>
 ```
 
-__authconfig.yaml:__
+__Sample configuration (authconfig.yaml):__
 ```text
 name: Jim Stevens
 email: jstevens@portworx.com
@@ -108,3 +111,9 @@ sub: jstevens@portworx.com/jstevens
 roles: ["system.user"]
 groups: ["*"]
 ```
+
+## Debugging token issues:
+
+You may gotten an unexpected `"Permission denied"` or other auth-related error. To take a look into your token permissions, you can always decode it with a JWT token decoding tool such as [jwt.io](https://jwt.io/)
+
+__Note:__ Be careful where you paste your token. [jwt.io](https://jwt.io/) does client-side validation and debugging and does not store your token anywhere.
