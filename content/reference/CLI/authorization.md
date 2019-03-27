@@ -112,7 +112,7 @@ roles: ["system.user"]
 groups: ["*"]
 ```
 
-## Debugging token issues:
+## Debugging token issues
 
 You may gotten an unexpected `"Permission denied"` or other auth-related error. To take a look into your token permissions, you can always decode it with a JWT token decoding tool such as [jwt.io](https://jwt.io/)
 

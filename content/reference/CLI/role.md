@@ -21,7 +21,7 @@ PX comes with a few standard roles that you can use when issuing tokens to users
 If you want more fine-grained control over what users can do within your clusters, you can manage your own custom roles with the following commands:
 
 * `pxctl role create --role-config <path to JSON config>`
-* `pxctl role delete <name>`
+* `pxctl role delete --name <role name>`
 * `pxctl role list`
 * `pxctl role update --role-config <path to JSON config>`
 
@@ -67,7 +67,7 @@ Flags:
 ```
 
 ### Role configuration
-A role configuration is comprised of a name and a list of rules. Each role has the following:
+A role configuration is comprised of a name and a list of rules. Each rule has the following:
 
 * __Services:__ Which services you want to provide access to. 
 * __APIs:__ Which APIs you want to provide access to. You can use a simple regular expression to represent multiple APIs. i.e. to allow all enumerate APIs, add an entry `*enumerate*` to your `"apis"` array (see below).
@@ -110,9 +110,9 @@ To see all services and APIs you can use within your custom roles, see our [API 
 ## Using your custom roles
 Once you've created your custom roles, you can simply add the role names during token generation/user management.
 
-* For OIDC, see your provider documentation on how to add the `roles` identifier to your tokens. Note: Some OIDC providers have differently scoped roles at the system or user level. Please ensure that you've added the roles at the base level of the token.
+* For OIDC, see your provider documentation on how to add the `roles` identifier to your tokens. __Note:__ Some OIDC providers have differently scoped roles at the system or user level. Please ensure that you've added the roles at the base level of the token.
+* For self-signed tokens, add the custom role in your auth-config during token creation:
 
-* For self-signed tokens, add the custom role in your auth-config during token creation.
 ```text
 name: Jim Stevens
 email: jstevens@portworx.com
