@@ -1,7 +1,7 @@
 ---
-title: Role with pxctl
+title: Role management
 linkTitle: Role
-keywords: portworx, container, Kubernetes, storage, role, roles, authorization, authentication, login, token, context, generate
+keywords: portworx, container, Kubernetes, storage, role, roles, authorization, authentication, login, token, context, generate, security, role, system.user, system.admin, system.view
 description: Learn to enable auth in your px cluster
 weight: 3
 ---
