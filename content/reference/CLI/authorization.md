@@ -1,18 +1,18 @@
 ---
 title: Authorization with pxctl
 linkTitle: Authorization
-keywords: portworx, container, Kubernetes, storage, auth, authz, authorization, authentication, login, token, oidc,context, generate, self-signed, jwt, shared-secret, c
+keywords: portworx, container, Kubernetes, storage, auth, authz, authorization, authentication, login, token, oidc,context, generate, self-signed, jwt, shared-secret, security
 description: Learn to enable auth in your px cluster
 weight: 3
 ---
 
 ## Overview 
 
-This document outlines how to interact with an auth-enabled PX cluster. 
+This document outlines how to interact with an auth-enabled PX cluster. The main way to interact with an auth-enabled cluster is by using the Context commands. In addition, you can integrate with an __OIDC provided token__ or __generate self-signed tokens__ through pxctl.
 
 ## Context
 
-pxctl allows you to store contexts and associated clusters, privileges, and tokens local to your users
+pxctl allows you to store contexts and associated clusters, privileges, and tokens local to your home directory.
 
 This enables you to easily switch between these configurations with a few commands:
 
@@ -36,7 +36,7 @@ Available Commands:
 ```
 
 ### Context management
-You can easily create and delete contexts with the below commands:
+You can easily create and delete contexts with the following commands:
 
 __Creating or updating a context:__
 ```text
@@ -71,7 +71,9 @@ contextconfig:
 
 ### Current context
 
-Now that you've created your contexts, you can easily switch between them with the commands below.
+Now that you've created your contexts, you can easily switch between them with the commands below. `pxctl` will automatically read your currently set context and use the associated token for all commands. 
+
+Alternatively, you can use the global `--context` flag to run a single command with a given context.
 
 __Setting current context:__
 
