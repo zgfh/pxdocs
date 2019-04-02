@@ -440,7 +440,3 @@ Volume	:  1125771388930868153
 	Replication Status	 :  Up
 
 ```
-
-## Snapshots commands for Portworx 1.2
-
-If you are looking for help on the snapshot commands available in _Portworx 1.2_, [go here](/reference/cli/version-1.2)
