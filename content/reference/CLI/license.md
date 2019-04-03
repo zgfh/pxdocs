@@ -9,10 +9,6 @@ weight: 8
 This document explains how to manage your _Portworx_ licenses with
 `pxctl license`. The CLI lets you add, activate, and transfer licenses. It also gives details about the installed licenses, and it shows what features are available within a given license.
 
-{{<info>}}
-This feature is available from version 1.2.8 onwards.
-{{</info>}}
-
 ## Overview
 
 Here's how to get the list of the available subcommands:
