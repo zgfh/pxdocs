@@ -20,7 +20,7 @@ Here's how to get the list of the available subcommands:
 ```text
 pxctl license --help
 ```
- 
+
 ```
 Manage licenses
 
@@ -55,7 +55,7 @@ Now, let's have a closer look at these commands.
 
 ## List available licenses
 
-You can use `pxctl license list` to list installed licenses as follows: 
+You can use `pxctl license list` to list installed licenses as follows:
 
 ```text
 pxctl license list
@@ -63,18 +63,18 @@ pxctl license list
 
 ```
 DESCRIPTION				ENABLEMENT	ADDITIONAL INFO
-Number of nodes maximum			1000		
-Number of volumes maximum		100000		
-Volume capacity [TB] maximum		  40		
-Storage aggregation			 yes		
-Shared volumes				 yes		
-Volume sets				 yes		
-BYOK data encryption			 yes		
-Resize volumes on demand		 yes		
-Snapshot to object store [CloudSnap]	 yes		
-Cluster-level migration [PX-Motion]	 yes		
-Bare-metal hosts			 yes		
-Virtual machine hosts			 yes		
+Number of nodes maximum			1000
+Number of volumes maximum		100000
+Volume capacity [TB] maximum		  40
+Storage aggregation			 yes
+Shared volumes				 yes
+Volume sets				 yes
+BYOK data encryption			 yes
+Resize volumes on demand		 yes
+Snapshot to object store [CloudSnap]	 yes
+Cluster-level migration [PX-Motion]	 yes
+Bare-metal hosts			 yes
+Virtual machine hosts			 yes
 Product SKU				Trial		expires in 6 days, 12:13
 
 LICENSE EXPIRES: 2019-04-07 23:59:59 +0000 UTC
@@ -92,7 +92,7 @@ The easiest way to activate a license is to get an **activation id** from _Portw
 pxctl license activate <activation-id>
 ```
 
-However, there are cases where the servers are cut off from the Internet. If so, you should download the license file. Then, add it like this:
+However, there are cases where the servers are configured without access to the Internet. Such customers should request an offline-activation license file, and install it like this:
 
 ```text
 pxctl license add <license file>
