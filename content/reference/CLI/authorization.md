@@ -92,19 +92,26 @@ __Unsetting current context:__
 pxctl context unset
 ```
 
-## Generating tokens
-
+## Generating tokens {#generate_tokens}
 _PX_ supports two methods of authorization: OIDC and self-signed.
 
-* For generating a token through your OIDC provider, see your provider's documentation on generating bearer tokens:
-  * [Keycloak](https://www.keycloak.org/docs/1.9/server_development_guide/topics/admin-rest-api.html)
-  * [Auth0](https://auth0.com/docs/api/authentication#get-token)
-  * [Okta](https://developer.okta.com/docs/api/getting_started/getting_a_token/#token-expiration)
-* For self-signed, `pxctl` has a command for generating tokens
+For generating a token through your OIDC provider, see your provider's
+documentation on generating bearer tokens. The following are some of the
+supported OIDCs:
+
+* [Keycloak](https://www.keycloak.org/docs/1.9/server_development_guide/topics/admin-rest-api.html)
+* [Auth0](https://auth0.com/docs/api/authentication#get-token)
+* [Okta](https://developer.okta.com/docs/api/getting_started/getting_a_token/#token-expiration)
+
+For self-signed, you can use your own JWT compliant application, or for
+convenience, `pxctl` has a command for generating tokens.
 
 __Generating self-signed tokens:__
 
-`pxctl` allows you to generate self-signed tokens in a few different ways: ECDSA, RSA, and Shared-Secret. In addition to these parameters, you must pass an issuer and `authconfig.yaml`. See below for an example with configuration `authconfig.yaml`.
+`pxctl` allows you to generate self-signed tokens in a few different ways:
+ECDSA, RSA, and Shared-Secret. In addition to these parameters, you must pass an
+issuer and `authconfig.yaml`. See below for an example with configuration
+`authconfig.yaml`.
 
 ```text
 pxctl auth token generate --auth-config=<authconfig.yaml> --issuer <issuer> \
