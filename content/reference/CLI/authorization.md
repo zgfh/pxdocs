@@ -128,5 +128,5 @@ groups: ["*"]
 You may have gotten an unexpected `"Permission denied"` or other auth-related error. To take a look into your token permissions, you can always decode it with a JWT token decoding tool such as [jwt.io](https://jwt.io/)
 
 {{<info>}}
-Be careful where you paste your token. [jwt.io](https://jwt.io/) does client-side validation and debugging. It does not store your token anywhere.
+[jwt.io](https://jwt.io/) does client-side validation and debugging. It does not store your token anywhere.
 {{</info>}}
