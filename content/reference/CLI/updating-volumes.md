@@ -158,10 +158,6 @@ Volume	:  970758537931791410
 			Node 	 :  10.99.117.133
 ```
 
-{{<info>}}
-In order to update the size of a given volume, you should first mount it. If it’s a shared volume, then this operation can be done from any of the nodes where the volume is attached.
-{{</info>}}
-
 
 ## Increase volume size
 
@@ -209,7 +205,12 @@ Volume	:  485002114762355071
 
 Note the default volume size - 1 GiB.
 
-Now that we've created a new volume, let's attach it:
+{{<info>}}
+In order to update the size of a given volume, you should first mount it. If it’s a shared volume, then this operation can be done from any of the nodes where the volume is attached.
+{{</info>}}
+
+
+Now that we've created a new volume, let's attach it to resize it.
 
 ```text
 pxctl host attach vol_resize_test
