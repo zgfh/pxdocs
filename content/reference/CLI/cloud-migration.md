@@ -22,10 +22,6 @@ This document will cover the steps required to migrate _PX_ volumes between clus
 
 ## Prerequisites
 
-### Installing Portworx
-
-First things first. We start by installing _Portworx_ on 2 clusters using [this image] (https://hub.docker.com/r/portworx/px-enterprise/).
-
 ### Configuring a secret store
 
 Before we begin, make sure you have configured a [secret store] (/key-management/) on both clusters. This will be used to store the credentials for the objectstore.
