@@ -3,7 +3,7 @@ title: Cloud migrations using pxctl
 linkTitle: Cloud Migrations
 keywords: portworx, container, Kubernetes, storage, Docker, k8s, cloud, DR, disaster recovery, cluster, migration
 description: Learn to migrate volumes between clusters using pxctl
-weight: 4
+weight: 12
 ---
 
 This document explains how to migrate _PX_ volumes between clusters. In order to do this, we'll first have to pair up 2 clusters and then issue the migration command to _Portworx_.
