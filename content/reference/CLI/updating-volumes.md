@@ -1,8 +1,8 @@
 ---
 title: Updating Volumes using pxctl
 keywords: portworx, pxctl, command-line tool, cli, reference
-description: Learn how to update volumes with pxctl.
-weight: 13
+description: Updating volumes is done simply with Portworx. Use the pxctl volume update  command to update a specific parameters. Try today!
+weight: 3
 ---
 
 This section will walk you through the commands for updating your _Portworx_ volumes.
