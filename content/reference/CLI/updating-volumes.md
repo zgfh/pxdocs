@@ -161,10 +161,10 @@ Volume	:  970758537931791410
 
 ## Increase volume size
 
-Here is an example of how to increase the size of an existing volume. 
+Here is an example of how to increase the size of an existing volume.
 
 First, let’s create a volume with the default parameters (1 GiB):
- 
+
 ```text
 pxctl volume create vol_resize_test
 ```
@@ -342,6 +342,17 @@ Volume	:  970758537931791410
 			Node 	 :  10.99.117.137
 ```
 
+`pxctl alerts show --type volume` will show when the replication is complete:
+
+```text
+pxctl alerts show --type volume
+```
+
+```
+AlertID	VolumeID		Timestamp			Severity	AlertType			Description
+25	970758537931791410	Feb 26 22:02:04 UTC 2017	NOTIFY		Volume operation success	Volume (Id: 970758537931791410 Name: clitest) HA updated from 1 to 2
+```
+
 ### Decreasing the replication factor
 
 The `ha-update` command can be used to reduce the replication factor as well. Continuing our example with `clitest`, let's reduce the volume's replication factor:
@@ -354,7 +365,7 @@ pxctl volume ha-update  --repl=1 --node b1aa39df-9cfd-4c21-b5d4-0dc1c09781d8 cli
 Update Volume Replication: Replication update started successfully for volume clitest
 ```
 
-Once the replication factor has been reduced to 1, the output of the `volume inspect` command would look something like this: 
+Once the replication factor has been reduced to 1, the output of the `volume inspect` command would look something like this:
 
 ```text
 pxctl volume inspect clitest
@@ -383,4 +394,11 @@ Volume	:  970758537931791410
 	Replica sets on nodes:
 		Set  0
 			Node 	 :  10.99.117.133
+```
+
+Here is the output of `pxctl alerts show --type volume`:
+
+```text
+25	970758537931791410	Feb 26 22:02:04 UTC 2017	NOTIFY		Volume operation success	Volume (Id: 970758537931791410 Name: clitest) HA updated from 1 to 2
+26	970758537931791410	Feb 26 22:58:17 UTC 2017	NOTIFY		Volume operation success	Volume (Id: 970758537931791410 Name: clitest) HA updated
 ```
