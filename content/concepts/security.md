@@ -1,6 +1,6 @@
 ---
 title: Security
-description: Explanation of the security model used by Portworx
+description: Explanation of the security model used by Portworx 
 keywords: portworx, security, ownership, tls, rbac, claims, jwt, oidc
 weight: 3
 series: concepts
